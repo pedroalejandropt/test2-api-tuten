@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 module.exports = function () {
     let server = express(),
@@ -18,6 +19,7 @@ module.exports = function () {
         server.use(bodyParser.urlencoded({
             extended: false
         }));
+        server.use(cors());
 
         // Set up routes
         routes.init(server);
